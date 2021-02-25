@@ -66,6 +66,8 @@ namespace SerialUWP
             }
         }
 
+
+
         private void tbLog_TextChanged(object sender, TextChangedEventArgs e)
         {
             var grid = (Grid)VisualTreeHelper.GetChild(tbLog, 0);
@@ -266,6 +268,14 @@ namespace SerialUWP
                 btnConnect.Content = "Connect";
             }
             serialPort = null;
+        }
+
+        private void btnRefresh_Click(object sender, RoutedEventArgs e)
+        {
+            cbPort.SelectedIndex = -1;
+            listOfDevices.Clear();
+            cbPort.ItemsSource = listOfDevices;
+            list_Ports();
         }
     }
 

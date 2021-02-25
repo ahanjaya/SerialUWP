@@ -11,7 +11,7 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="5*"/>
-            <ColumnDefinition Width="1.5*"/>
+            <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.1*"/>
@@ -19,7 +19,7 @@
         </Grid.RowDefinitions>
 
         <Rectangle Height="Auto" Fill="LightSteelBlue" Grid.Row="0" Grid.ColumnSpan="3"/>
-        <TextBlock Text="Serial RS-232 [UWP]" FontSize="28" FontWeight="Medium" Grid.Row="0" Grid.ColumnSpan="3" VerticalAlignment="Center" Margin="10" />
+        <TextBlock Text="Serial RS-232 [UWP]" FontSize="28" FontWeight="Medium" Grid.Row="0" VerticalAlignment="Center" Margin="10" />
 
         <!--Logging-->
         <Border BorderThickness="1" BorderBrush="Black" Grid.Column="0" Grid.Row="1" Grid.RowSpan="5" Margin="10" Padding="10">
@@ -60,7 +60,7 @@
         <Border BorderThickness="1" BorderBrush="Black" Grid.Row="1" Grid.Column="1" Margin="10" Padding="10,5,10,5">
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1.1*"/>
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="1*"/>
@@ -69,10 +69,14 @@
                     <RowDefinition Height="1*"/>
                 </Grid.RowDefinitions>
 
-                <ComboBox x:Name="cbPort" FontSize="22" 
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <ComboBox x:Name="cbPort" FontSize="22" 
                           Header="Port" PlaceholderText="Select" 
-                          Grid.Row="0" Grid.Column="1" 
-                          Margin="10" 
+                          Margin="10,0,10,0" Grid.Row="0"
                           VerticalAlignment="Center" HorizontalAlignment="Stretch">
                     <ComboBox.ItemTemplate>
                         <DataTemplate>
@@ -81,6 +85,13 @@
                     </ComboBox.ItemTemplate>
                 </ComboBox>
 
+                    <Button x:Name="btnRefresh"  Content="Refresh" 
+                                 Grid.Row="1"    Margin="10,5,10,0"  FontSize="16"
+                                 HorizontalAlignment="Stretch" 
+                                 Click="btnRefresh_Click">
+                    </Button>
+                </Grid>
+                
                 <ComboBox x:Name="cbBaud"   FontSize="22" 
                           Header="Baudrate" PlaceholderText="Select" 
                           Grid.Row="1"      Grid.Column="1"
